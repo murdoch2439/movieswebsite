@@ -3,46 +3,30 @@ import styled from 'styled-components';
 import {Input} from 'semantic-ui-react';
 import axios from "axios"
 import CardMovie from "./cardMovie"
-// import Window from "./modal"
 
 
 
 const SearchBarStyle = styled.div`
+    display:flex;
+    overflow-x:scroll;
+    width:1200px;
     
-    overflow-y:scroll;
-    width:1100px;
-    margin:auto;
     margin-top:20px;
     height: 300px; 
-    padding-left:70px;
+    margin-left:40px;
     
     
     background-color:#FCC731;
     /* background-color:white; */
+    height:500px;
     .searchbar{
-        width:1000px;
+        width:1200px;
         padding:auto;
         padding-bottom:10px;
         position:absolute;
         
         
     }
-    /* .searchbutton{
-        
-        background-color:#D24545;
-        color:white;
-        border-top-left-radius:0px;
-        border-bottom-left-radius:0px;
-        position:relative;
-        right:10px;
-        bottom:1px;
-        height:39px;
-    }
-     */
-    /* .dropdown{
-        height:39px;
-        margin-right:30px;
-    } */
 `
 
 const apiKey="93d65b320d0633776484d6aa29f4c92b"
@@ -68,6 +52,7 @@ const SearchBar =  () => {
         
       });
 
+      
 
     return (
         <SearchBarStyle>
@@ -75,14 +60,13 @@ const SearchBar =  () => {
             <Input icon="search" onChange={(e) => setSearching(e.target.value)} className="searchbar" placeholder='Search by typing a title...' />
             </div>
             {resultOfSearch.map ((item) =>
+                
                     <Fragment key={item.id}>
-                        <CardMovie   image={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} title={item.original_title} date={item.release_date} description={item.overview}/>
+                        
+                        <CardMovie    image={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} title={item.original_title}  item ={item}/>
                     </Fragment>
             )}
-            {/* <Button className="searchbutton" >Rechercher</Button> */}
-            
-
-            {/* <Dropdown className="dropdown" placeholder='Rechercher par titre' options={options} selection /> */}
+                        
         </SearchBarStyle>
     )
 }

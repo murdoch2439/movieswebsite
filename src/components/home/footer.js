@@ -23,7 +23,7 @@ const FooterStyle = styled.footer`
     nav li{
         
         list-style-type:none;
-        margin-right:50px;
+        margin-right:100px;
         padding-top:15px;
     }
     a{
@@ -54,7 +54,7 @@ function Footer () {
                     <ul>
                         <li><a href="#accueil">Home</a></li>
                         <li><a href="#films">Movies</a></li>
-                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#blog">Contact</a></li>
                     </ul>
                 </nav>
             </div> 
