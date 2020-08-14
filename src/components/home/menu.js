@@ -12,8 +12,10 @@ const MenuStyle = styled.nav`
     }
     nav li{
         list-style-type:none;
-        margin-right:35px;
-        padding-top:25px;
+                
+        margin-top:25px;
+        margin-right:90px;
+        padding-right:0px;
     }
     a{
         color:#FCC731;
@@ -39,7 +41,7 @@ function Menu(){
                     <ul>
                         <li><a href="#accueil">Home</a></li>
                         <li><a href="#films">Movies</a></li>
-                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#blog">Contact</a></li>
                     </ul>
                 </nav>
             </div>

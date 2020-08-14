@@ -3,11 +3,11 @@ import { UncontrolledCarousel } from 'reactstrap';
 import styled from "styled-components"
 
 const TopMoviesStyle = styled.div`
-            width:600px;
+            width:900px;
             padding-top:10px;
             margin:auto;
             .generalcover{
-                height:300px;
+                height:450px;
             }
 `
 

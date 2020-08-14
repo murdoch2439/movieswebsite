@@ -1,60 +1,60 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from "styled-components"
+import Modals from "./details/modal"
 
 
 const CardStyle = styled.div`
-        display:flex;
         background-color:white;
-        width:1000px;
-        height:200px;
-        margin-bottom:10px;
-        margin-left:0px;
+        width:350px;
+        height:400px;      
         box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.10);
         border-radius: 10px;
-        margin-top:50px;
+        margin:90px 50px 0px 10px;
         justify-content:center;
         
         
+        
         .coverImage{
-          width:100px;
+          width:200px;
           height:200px;
-          border-top-left-radius:10px;
-          border-bottom-left-radius:10px;
+          border-radius:10px;
+          margin-top:40px;
+          
+          cursor:pointer;
         }
         .movieInformation{
-            margin:5px 5px 0px 20px;
-            padding-top:10px;
-        }
-        .movieDescription{
-            text-align:justify;
-            margin-left:0px;
-            padding-right:10px;  
+            margin:5px 5px 0px 5px;
             
         }
-        .dateTime{
-          font-style:italic;
+        
+        h5{
+          cursor:pointer;
         }
 
         
 
 `
 
-const CardMovie = ({title, image, date, description}) => (
-    
+
+const CardMovie = ({title, image, item}) => {
+  const [modal, setModal] = useState(false);
+
+  const toggle = (item) => {
+    console.log(item)
+    setModal(!modal)
+  } ;
+  return(
     <>
-  <CardStyle>
-    <div>
-      <img className="coverImage" src={image}  alt="" />
-    </div>
-    <div className="movieInformation">
-        <h3>{title}</h3>
-        <p className="dateTime">{date}</p>
-        
-        <p className="movieDescrition">{description}</p>
+  <CardStyle onClick={() => toggle(item)} >
+  <Modals   modal={modal} setModal={modal} toggle={toggle} item={item}/>
     
+    <div className="movieInformation">
+        <div><h5>{title}</h5></div>
+        <img className="coverImage" src={image}  alt="" />
     </div>
+    
   </CardStyle>
-  </>
-)
+  </>)
+}
 
 export default CardMovie

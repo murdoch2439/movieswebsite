@@ -12,7 +12,7 @@ const LayoutStyle = styled.div`
             .titleOfPopularMovies{
                 margin-top:10px;
                 color:white;
-                margin-left:50px;
+                margin-left:190px;
                 text-transform:uppercase;
             }
         
@@ -30,7 +30,7 @@ function Layout (){
                 <CoverCarousel />
             </div>
 
-                <h2 className="titleOfPopularMovies">Most popular</h2>
+                <h2 className="titleOfPopularMovies">Movies</h2>
             
             <div className="ser">
                 <SearchBar />
