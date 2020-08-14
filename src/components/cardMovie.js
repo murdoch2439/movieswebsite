@@ -36,7 +36,7 @@ const CardStyle = styled.div`
 `
 
 
-const CardMovie = ({title, image, date, description, item}) => {
+const CardMovie = ({title, image, item}) => {
   const [modal, setModal] = useState(false);
 
   const toggle = (item) => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {  Modal, ModalHeader, ModalBody,  } from 'reactstrap';
 import styled from "styled-components"
 
@@ -11,10 +11,10 @@ const ModalStyle = styled.div`
 `
 const Modals = (props) => {
   const {
-    buttonLabel,
+    
     className,
     modal,
-    setModal,
+    
     toggle,
     item
   } = props;
