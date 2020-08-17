@@ -5,28 +5,47 @@ import axios from "axios"
 import CardMovie from "./cardMovie"
 
 
-
 const SearchBarStyle = styled.div`
     display:flex;
     overflow-x:scroll;
-    width:1200px;
-    
-    margin-top:20px;
-    height: 300px; 
-    margin-left:40px;
-    
-    
-    background-color:#FCC731;
-    /* background-color:white; */
-    height:500px;
+    width:100%;
+    height:450px;
     .searchbar{
-        width:1200px;
-        padding:auto;
-        padding-bottom:10px;
-        position:absolute;
-        
-        
+        width:95%;
+        margin-left:3%;
+        position:absolute;        
     }
+
+    @media screen and (max-width:320px){
+        width:100%;
+        margin:0px
+
+    }
+    
+    @media screen and (max-width: 525px)
+{   margin-top:2%;
+    width:100%;
+        padding-left:300px;
+    .searchbar
+    {
+        width:100px;
+        margin-bottom:30px;
+    }
+}
+
+@media screen and (max-width: 725px)
+{   
+    height:500px;
+    display:inline ;
+    overflow-y:scroll;
+    background-color:#FCC731;;
+    
+    .searchbar
+    {
+        width:300px;
+        margin-left:0px;
+    }
+}
 `
 
 const apiKey="93d65b320d0633776484d6aa29f4c92b"
@@ -34,7 +53,8 @@ const apiKey="93d65b320d0633776484d6aa29f4c92b"
 const SearchBar =  () => {
     const [searching, setSearching] = useState("")
     const [researches, setResearches] = useState([])
-    const getUrl = async () =>{
+
+        const getUrl = async () =>{
         const retrived = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`).then((res) => res.data.results).catch((err) => console.log(err))
 
         setResearches(retrived)
@@ -44,6 +64,7 @@ const SearchBar =  () => {
     useEffect(() => {
         getUrl();
       }, []);
+
       const resultOfSearch = researches.filter((item) => {
         return (
           item.original_title.toLowerCase().includes(searching.toLowerCase()) ||
@@ -52,7 +73,6 @@ const SearchBar =  () => {
         
       });
 
-      
 
     return (
         <SearchBarStyle>

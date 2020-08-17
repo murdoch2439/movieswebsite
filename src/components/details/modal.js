@@ -4,17 +4,15 @@ import styled from "styled-components"
 
 
 const ModalStyle = styled.div`
-        
+        width:500px;
         .modalBody{
           display:flex;
         }
 `
 const Modals = (props) => {
   const {
-    
     className,
     modal,
-    
     toggle,
     item
   } = props;
@@ -41,32 +39,3 @@ const Modals = (props) => {
 }
 
 export default Modals;
-
-
-
-// import React from "react"
-// import axios from "axios"
-// import styled from "styled-components"
-
-
-// const ModalStyle = styled.div`
-//             background-color:blue;
-//             height:700px;
-//             width:500px;
-// `
-
-
-
-
-// const Modal = (item) => {
-//     return(
-//         <ModalStyle>
-//             <img className="background" src={item.backdrop_path} alt ="" />
-//             <img className="profil" src={item.poster_path} alt="" />
-//             <h1>{item.original_title}</h1>
-//             <p>{item.release_date}</p>
-//             <p>{item.overview}</p>
-//         </ModalStyle>
-//     )
-// }
-// export default Modal

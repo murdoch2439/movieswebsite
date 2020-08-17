@@ -5,16 +5,34 @@ import CoverCarousel from "./carousel"
 import Footer from "./home/footer"
 import SearchBar from "./searchbar"
 
-
 const LayoutStyle = styled.div`
-            background-color:#FCC731;
-
-            .titleOfPopularMovies{
-                margin-top:10px;
-                color:white;
-                margin-left:190px;
-                text-transform:uppercase;
+            
+            background-color:rgb(156, 156, 35);
+            height:100%;
+            width:100%;
+            .search{
+                width:100%;
+                height:100%;
             }
+            .carousel{
+                width:100%;
+                height:100%;
+            }
+
+
+    @media screen and (min-width: 320px)
+{   
+    width:100%;
+    .search{
+        margin-top:-100px;
+        height:100%;
+        width:100%;
+    }
+     
+}
+
+
+
         
 `
 
@@ -22,23 +40,14 @@ function Layout (){
     return(
         <>
         <LayoutStyle>
-            <div>
-                <Header />
-            </div>
-
-            <div>
-                <CoverCarousel />
-            </div>
-
-                <h2 className="titleOfPopularMovies">Movies</h2>
+                
             
-            <div className="ser">
-                <SearchBar />
-            </div> 
-
-            <div>
+                           
+            
+                
+            
                 <Footer />
-            </div>
+            
         </LayoutStyle>
         </>
     )
