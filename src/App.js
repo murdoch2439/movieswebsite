@@ -9,6 +9,7 @@ import styled from "styled-components"
 
 const AppStyle= styled.div`
       width:100%;
+      height:100%;
       background-color:#FCC731;
       .carousel{
         height:1%;
@@ -34,10 +35,11 @@ function App() {
     <div className="App">
       
         <Header />
-        <div className="carousel"><Carousel /></div>
+        <div className="carousel">
+        <Carousel />
+        </div>
         <SearchBar />
         <Footer />
-             
     </div>
     </AppStyle>
   );

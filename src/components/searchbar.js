@@ -1,9 +1,8 @@
-import React, {useState, useEffect, Fragment} from 'react';
+import React, {useState, useEffect,getUrl, Fragment} from 'react';
 import styled from 'styled-components';
 import {Input} from 'semantic-ui-react';
-import axios from "axios"
-import CardMovie from "./cardMovie"
-
+import axios from "axios";
+import CardMovie from "./cardMovie";
 
 const SearchBarStyle = styled.div`
     display:flex;
@@ -16,7 +15,7 @@ const SearchBarStyle = styled.div`
         position:absolute;        
     }
 
-    @media screen and (max-width:320px){
+    @media all and (max-device-width: 480px){
         width:100%;
         margin:0px
 
@@ -54,36 +53,34 @@ const SearchBar =  () => {
     const [searching, setSearching] = useState("")
     const [researches, setResearches] = useState([])
 
-        const getUrl = async () =>{
-        const retrived = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`).then((res) => res.data.results).catch((err) => console.log(err))
+        const getUrl = async (e) =>{
+            setSearching(e.target.value)
+        
+        const retrived = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en&query=${searching}`);
 
-        setResearches(retrived)
+        setResearches(retrived.data.results)
         console.log(retrived)
     }
-
     useEffect(() => {
-        getUrl();
+        (async function() {
+          const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`);
+          setResearches(res.data.results);
+        //   setTotalPage(res.data.total_pages)
+        //   setIsLoading(true)
+        })();
       }, []);
-
-      const resultOfSearch = researches.filter((item) => {
-        return (
-          item.original_title.toLowerCase().includes(searching.toLowerCase()) ||
-          item.title.toLowerCase().includes(searching.toLowerCase())
-        );
-        
-      });
-
 
     return (
         <SearchBarStyle>
             <div>
-            <Input icon="search" onChange={(e) => setSearching(e.target.value)} className="searchbar" placeholder='Search by typing a title...' />
+            <Input icon="search" onChange={getUrl} className="searchbar" placeholder='Search by typing a title...' />
             </div>
-            {resultOfSearch.map ((item) =>
+            {researches && researches.map ((item) =>
                 
                     <Fragment key={item.id}>
                         
                         <CardMovie    image={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} title={item.original_title}  item ={item}/>
+                        {/* <ImgStyle src={ film.poster_path === null? defaultImg :getImageFromApi(film.poster_path)} /> */}
                     </Fragment>
             )}
                         
