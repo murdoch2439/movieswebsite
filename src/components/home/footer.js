@@ -6,7 +6,7 @@ const FooterStyle = styled.footer`
             display:flex;
             justify-content:space-between;
             background-color:black;
-            height:70px;
+            height:50px;
             p{
                 color:white;
                 padding-top:20px;
@@ -23,9 +23,9 @@ function Footer () {
             <div>
                 <p>Copyright 2020</p>
             </div>
-            <div className="menu">
+            {/* <div className="menu">
                 <Menu />
-            </div> 
+            </div>  */}
             
         </FooterStyle>
     )
